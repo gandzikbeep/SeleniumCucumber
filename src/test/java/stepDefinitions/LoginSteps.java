@@ -28,6 +28,16 @@ public void login(){
     System.out.println("Inside step - clicks on login button");
     driver.findElement(By.id("SubmitLogin")).click();
 }
+//do zmiany!!!!!!!!!!!!!!
+@When("^user enters (.*) and (.*)$")
+        public void loginMultipleUsers(String username, String password){
+    driver.findElement(By.xpath("//*[@id='email']")).sendKeys(username);
+    driver.findElement(By.xpath("//*[@id='passwd']")).sendKeys(password);
+    System.out.println("Inside step - clicks on login button");
+    driver.findElement(By.id("SubmitLogin")).click();
+}
+
+
 
     @Then("user is navigated to the welcome page")
     public void user_is_navigated_to_the_welcome_page() {
