@@ -3,16 +3,16 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.homePage;
 
-public class HomePage {
+public class HomeStepsPOM {
 
 
-    WebDriver driver;
+    WebDriver driver = null;
+    homePage home;
 
 
     @Given("Open homepage")
@@ -21,16 +21,20 @@ public class HomePage {
         driver = new ChromeDriver();
         String homePageUrl = "http://automationpractice.com/index.php";
         driver.get(homePageUrl);
+        System.out.println("======inside home Page POM=================== ");
     }
+
     @Then("I verify that the logo present on page")
     public void i_verify_that_the_logo_present_on_page() {
-        boolean status = driver.findElement(By.xpath("//*[@id=\"header_logo\"]/a/img")).isDisplayed();
-        Assert.assertTrue("nie jest widoc", status);
+        home = new homePage(driver);
+        home.checkLogo();
+        Assert.assertTrue(true);
     }
+
     @Then("SignIn button is visible on homePage")
-    public void isSignInButtonIsVisibleOnHomePage(){
-        boolean status = driver.findElement(By.xpath("//*[@title = 'Log in to your customer account']")).isDisplayed();
-        Assert.assertTrue("wiad",status);
+    public void isSignInButtonIsVisibleOnHomePage() {
+        home.visibilitySignInBtn();
+        Assert.assertTrue(true);
     }
 
     @And("Close browser")
@@ -41,9 +45,7 @@ public class HomePage {
 
     @Given("Open loginPage")
     public void click_on_sign_in_btn() {
-
-        driver.findElement(By.xpath("//*[@title = 'Log in to your customer account']")).click();
-
+        home.goToLoginPage();
     }
 
 }
