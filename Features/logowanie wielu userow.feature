@@ -1,4 +1,4 @@
-Feature: Logowanie wielu pracownikow
+Feature: Logowanie wielu userow
 
   Scenario Outline:
 
