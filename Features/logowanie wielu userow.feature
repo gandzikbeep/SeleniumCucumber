@@ -1,4 +1,4 @@
-Feature: Logowanie wielu userow
+Feature: Multi-user login
 
   Scenario Outline:
 
