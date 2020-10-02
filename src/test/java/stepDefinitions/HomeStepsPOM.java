@@ -6,13 +6,13 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.homePage;
+import pageFactory.HomePage_PF;
 
 public class HomeStepsPOM {
 
 
     WebDriver driver = null;
-    homePage home;
+    HomePage_PF home;
 
 
     @Given("Open homepage")
@@ -26,14 +26,14 @@ public class HomeStepsPOM {
 
     @Then("I verify that the logo present on page")
     public void i_verify_that_the_logo_present_on_page() {
-        home = new homePage(driver);
-        home.checkLogo();
+        home = new HomePage_PF(driver);
+        home.isLogoIsVisible();
         Assert.assertTrue(true);
     }
 
     @Then("SignIn button is visible on homePage")
     public void isSignInButtonIsVisibleOnHomePage() {
-        home.visibilitySignInBtn();
+        home.isBtnLogoutIsVisible();
         Assert.assertTrue(true);
     }
 

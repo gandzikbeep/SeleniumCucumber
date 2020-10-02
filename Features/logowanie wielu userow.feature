@@ -13,5 +13,5 @@ Feature: Multi-user login with logout
     Examples:
       | username              | password |
       | correctUsername@pl.pl | 1234567  |
-      | anna@test.pl          | 111111   |
+#      | anna@test.pl          | 111111   |
 #      | abc@xyz.com           | Test@123 |    // incorrectData
